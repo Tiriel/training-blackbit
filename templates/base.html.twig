@@ -16,7 +16,7 @@
     <body>
         <header>
             {% block navbar %}
-                {{ include('includes/_navbar.html.twig') }}
+                {{ include('includes/_navbar.html.twig', {current: app.current_route}) }}
             {% endblock %}
         </header>
         <main class="container mt-5">
