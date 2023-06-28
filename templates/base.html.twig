@@ -22,5 +22,8 @@
         <main class="container mt-5">
             {% block body %}{% endblock %}
         </main>
+        <footer>
+            {{ render_esi(controller('App\\Controller\\MovieController::decades')) }}
+        </footer>
     </body>
 </html>
