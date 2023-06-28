@@ -13,10 +13,20 @@
 <div class="example-wrapper">
     <h1>Hello {{ controller_name }}! ✅</h1>
 
+    <div>
+        <span {{ stimulus_controller('symfony/ux-typed', {
+            strings: [
+                'Symfony Ux is Awesome',
+                'Symfony UX Rocks!',
+            ]
+        }) }}
+        ></span>
+    </div>
     This friendly message is coming from:
     <ul>
         <li>Your controller at <code><a href="{{ '/home/benjamin/Dev/sl/formations/training-blackbit/src/Controller/GetSongController.php'|file_link(0) }}">src/Controller/GetSongController.php</a></code></li>
         <li>Your template at <code><a href="{{ '/home/benjamin/Dev/sl/formations/training-blackbit/templates/song/index.html.twig'|file_link(0) }}">templates/song/index.html.twig</a></code></li>
     </ul>
 </div>
+    {{ include('includes/_cart.html.twig') }}
 {% endblock %}
