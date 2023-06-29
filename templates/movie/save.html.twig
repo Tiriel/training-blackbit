@@ -1,0 +1,16 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New Movie{% endblock %}
+
+{% block body %}
+<div class="example-wrapper">
+    <h1>New Movie</h1>
+
+    <div class="w-75 m-auto">
+        {{ form_start(form) }}
+            {{ form_widget(form) }}
+            <button class="btn btn-primary" type="submit">Send</button>
+        {{ form_end(form) }}
+    </div>
+</div>
+{% endblock %}

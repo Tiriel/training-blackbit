@@ -39,6 +39,18 @@ class BookRepository extends ServiceEntityRepository
         }
     }
 
+    public function findByAuthorAndDateRange(string $author, \DateTimeImmutable $start, \DateTimeImmutable $end)
+    {
+        $qb = $this->createQueryBuilder('b');
+
+        return $qb
+            ->where('b.author = :author')
+            ->andWhere($qb->expr()->between('b.releasedAt', $start, $end))
+            ->setParameter('author', $author)
+            ->getQuery()
+            ->getResult();
+    }
+
 //    /**
 //     * @return Book[] Returns an array of Book objects
 //     */

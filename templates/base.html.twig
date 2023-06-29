@@ -18,6 +18,8 @@
             {% block navbar %}
                 {{ include('includes/_navbar.html.twig', {current: app.current_route}) }}
             {% endblock %}
+            {% block header %}
+            {% endblock %}
         </header>
         <main class="container mt-5">
             {% block body %}{% endblock %}

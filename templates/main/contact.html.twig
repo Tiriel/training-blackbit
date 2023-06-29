@@ -1,0 +1,23 @@
+{% extends 'base.html.twig' %}
+
+{% block title 'Accueil' %}
+
+{% block header %}
+    <section class="h-100 p-5" style="background-color: black;">
+        <div class="text-white text-center h-100">
+            <h1 class="display-3 font-weight-bold m-0">SensioTV+</h1>
+        </div>
+    </section>
+{% endblock %}
+
+{% block body %}
+    <section>
+        <h2 class="text-center">Contact us</h2>
+        <div class="w-50 m-auto">
+            {{ form_start(form) }}
+                {{ form_widget(form) }}
+                <button type="submit" class="btn btn-primary">Send</button>
+            {{ form_end(form) }}
+        </div>
+    </section>
+{% endblock %}

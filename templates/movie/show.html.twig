@@ -1,19 +1,27 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Movie : {{ movie.title ?? 'Not found.' }}{% endblock %}
+{% block title %}Movie :{{ movie.title ?? 'Not found' }}{% endblock %}
 
 {% block body %}
-<div class="example-wrapper">
-    <h1>Movie : {{ movie.title ?? 'Not found' }}</h1>
+    <div class="example-wrapper">
+        {% if movie.title %}
+            <h1>Movie : {{ movie.title }}</h1>
 
-    {% if movie.title %}
-    <ul>
-        <li>Title : {{ movie.title }}</li>
-        <li>Release date : {{ movie.releasedAt|date('d M Y') }}</li>
-        <li>Genres : {{ movie.genre|join(', ') }}</li>
-    </ul>
-    {% else %}
-        <p>No movie.</p>
-    {% endif %}
-</div>
+            <article class="pt-5">
+                <img src="{{ movie.poster }}" alt="{{ movie.title }}" class="float-end">
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item">Id : {{ movie.id }}</li>
+                    <li class="list-group-item">Released at : {{ movie.releasedAt|date('d F Y') }}</li>
+                    <li class="list-group-item">Country : {{ movie.country }}</li>
+                    <li class="list-group-item">Plot : {{ movie.plot }}</li>
+                    <li class="list-group-item">Genre : {{ movie.genres|map(genre => genre.name)|join(', ') }}</li>
+{#                    <li class="list-group-item">Imdb ID : {{ movie.imdbId }}</li>#}
+{#                    <li class="list-group-item">Rated : {{ movie.rated }}</li>#}
+                    <li class="list-group-item">Price : {{ (movie.price) ~'€'|default('-') }}</li>
+                </ul>
+            </article>
+        {% else %}
+            <h1>Movie not found.</h1>
+        {% endif %}
+    </div>
 {% endblock %}
