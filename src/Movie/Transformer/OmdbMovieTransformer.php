@@ -7,10 +7,6 @@ use Symfony\Component\Form\DataTransformerInterface;
 
 class OmdbMovieTransformer implements DataTransformerInterface
 {
-    public function __construct(
-        private readonly OmdgGenreTransformer $genreTransformer
-    ) {}
-
     public function transform(mixed $value)
     {
         if (!\is_array($value) || !array_key_exists('Title', $value)) {
@@ -27,10 +23,6 @@ class OmdbMovieTransformer implements DataTransformerInterface
             ->setReleasedAt(new \DateTimeImmutable($date))
             ->setPrice(500)
             ;
-
-        foreach (explode(', ', $value['Genre']) as $name) {
-            $movie->addGenre($this->genreTransformer->transform($name));
-        }
 
         return $movie;
     }
