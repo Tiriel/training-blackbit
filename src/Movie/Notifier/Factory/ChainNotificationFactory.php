@@ -5,6 +5,7 @@ namespace App\Movie\Notifier\Factory;
 use Symfony\Component\DependencyInjection\Attribute\TaggedIterator;
 use Symfony\Component\Notifier\Notification\Notification;
 
+
 class ChainNotificationFactory implements NotificationFactoryInterface
 {
     /** @var NotificationFactoryInterface[] $factories */
@@ -12,7 +13,7 @@ class ChainNotificationFactory implements NotificationFactoryInterface
 
     public function __construct(
         #[TaggedIterator(tag: 'app.notification_factory', defaultIndexMethod: 'getIndex')]
-        iterable $factories
+        iterable $factories,
     ) {
         $this->factories = $factories instanceof \Traversable ? iterator_to_array($factories) : $factories;
     }

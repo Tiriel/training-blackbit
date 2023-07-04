@@ -3,6 +3,8 @@
 namespace App\Movie\Notifier;
 
 use App\Movie\Notifier\Factory\ChainNotificationFactory;
+use App\Movie\Notifier\Factory\NotificationFactoryInterface;
+use Symfony\Component\DependencyInjection\Attribute\Autowire;
 use Symfony\Component\Notifier\NotifierInterface;
 use Symfony\Component\Notifier\Recipient\Recipient;
 
@@ -10,7 +12,7 @@ class MovieNotifier
 {
     public function __construct(
         private readonly NotifierInterface $notifier,
-        private readonly ChainNotificationFactory $factory,
+        private readonly NotificationFactoryInterface $factory,
     ) {}
 
     public function sendNotification(string $message): void
