@@ -6,6 +6,7 @@ use App\Entity\Movie;
 use App\Entity\User;
 use App\Event\MovieCreatedEvent;
 use App\Event\MovieEditedEvent;
+use App\Event\MovieUnderageEvent;
 use App\Form\MovieType;
 use App\Movie\Enum\SearchTypeEnum;
 use App\Movie\Provider\MovieProvider;
@@ -23,6 +24,7 @@ class MovieController extends AbstractController
 {
     public function __construct(
         private readonly MovieRepository $repository,
+        private readonly EventDispatcherInterface $dispatcher,
     ) {}
 
     #[Route('', name: 'app_movie_index')]
@@ -46,7 +48,7 @@ class MovieController extends AbstractController
 
     #[Route('/new', name: 'app_movie_new')]
     #[Route('/{id<\d+>}/edit', name: 'app_movie_edit')]
-    public function save(Request $request, EventDispatcherInterface $dispatcher, ?Movie $movie = null): Response
+    public function save(Request $request, ?Movie $movie = null): Response
     {
         $this->denyAccessUnlessGranted(MovieVoter::EDIT, $movie);
         $movie ??= new Movie();
@@ -62,7 +64,7 @@ class MovieController extends AbstractController
             $event = 'app_movie_new' === $request->attributes->get('_route')
                 ? MovieCreatedEvent::class
                 : MovieEditedEvent::class;
-            $dispatcher->dispatch(new $event($movie));
+            $this->dispatcher->dispatch(new $event($movie));
 
             return $this->redirectToRoute('app_movie_show', ['id' => $movie->getId()]);
         }
@@ -90,5 +92,15 @@ class MovieController extends AbstractController
         return $this->render('includes/_decades.html.twig', [
             'decades' => $decades
         ])->setMaxAge(3600);
+    }
+
+    protected function denyAccessUnlessGranted(mixed $attribute, mixed $subject = null, string $message = 'Access denied.'): void
+    {
+        $user = $this->getUser();
+        if (\in_array($attribute, [MovieVoter::VIEW, MovieVoter::EDIT]) && $user instanceof User) {
+            $this->dispatcher->dispatch(new MovieUnderageEvent($subject, $user));
+        }
+
+        parent::denyAccessUnlessGranted($attribute, $subject, $message);
     }
 }

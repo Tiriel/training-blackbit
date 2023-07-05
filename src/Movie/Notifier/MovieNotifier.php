@@ -28,6 +28,7 @@ class MovieNotifier
         };
         $notification = $this->factory->createNotification($message, $user->getPreferredChannel());
 
-        $this->notifier->send($notification, new Recipient($user->getEmail()));
+        //$this->notifier->send($notification, new Recipient($user->getEmail()));
+        dump($notification);
     }
 }
