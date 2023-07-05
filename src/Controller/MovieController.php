@@ -3,12 +3,17 @@
 namespace App\Controller;
 
 use App\Entity\Movie;
+use App\Entity\User;
+use App\Event\MovieCreatedEvent;
+use App\Event\MovieEditedEvent;
 use App\Form\MovieType;
 use App\Movie\Enum\SearchTypeEnum;
 use App\Movie\Provider\MovieProvider;
 use App\Repository\MovieRepository;
+use App\Security\Voter\MovieVoter;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\EventDispatcher\EventDispatcherInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -31,6 +36,7 @@ class MovieController extends AbstractController
     #[Route('/{id<\d+>}', name: 'app_movie_show')]
     public function show(Movie $movie, EntityManagerInterface $manager): Response
     {
+        $this->denyAccessUnlessGranted(MovieVoter::VIEW, $movie);
         $manager->getUnitOfWork()->markReadOnly($movie);
 
         return $this->render('movie/show.html.twig', [
@@ -40,14 +46,23 @@ class MovieController extends AbstractController
 
     #[Route('/new', name: 'app_movie_new')]
     #[Route('/{id<\d+>}/edit', name: 'app_movie_edit')]
-    public function save(Request $request, ?Movie $movie = null): Response
+    public function save(Request $request, EventDispatcherInterface $dispatcher, ?Movie $movie = null): Response
     {
+        $this->denyAccessUnlessGranted(MovieVoter::EDIT, $movie);
         $movie ??= new Movie();
         $form = $this->createForm(MovieType::class, $movie);
 
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
+            if (!$movie->getId() && ($user = $this->getUser()) instanceof User) {
+                $movie->setCreatedBy($user);
+            }
             $this->repository->save($movie, true);
+
+            $event = 'app_movie_new' === $request->attributes->get('_route')
+                ? MovieCreatedEvent::class
+                : MovieEditedEvent::class;
+            $dispatcher->dispatch(new $event($movie));
 
             return $this->redirectToRoute('app_movie_show', ['id' => $movie->getId()]);
         }
@@ -60,8 +75,11 @@ class MovieController extends AbstractController
     #[Route('/omdb/{title}', name: 'app_movie_omdb')]
     public function omdb(string $title, MovieProvider $provider): Response
     {
+        $movie = $provider->getMovieByTitle($title);
+        $this->denyAccessUnlessGranted(MovieVoter::VIEW, $movie);
+
         return $this->render('movie/show.html.twig', [
-            'movie' => $provider->getMovieByTitle($title),
+            'movie' => $movie,
         ]);
     }
 

@@ -3,11 +3,15 @@
 namespace App\Movie\Provider;
 
 use App\Entity\Movie;
+use App\Entity\User;
+use App\Event\MovieCreatedEvent;
 use App\Movie\Consumer\OmdbMovieConsumer;
 use App\Movie\Enum\SearchTypeEnum;
 use App\Movie\Transformer\OmdbMovieTransformer;
 use App\Repository\MovieRepository;
+use Symfony\Bundle\SecurityBundle\Security;
 use Symfony\Component\Console\Style\SymfonyStyle;
+use Symfony\Contracts\EventDispatcher\EventDispatcherInterface;
 
 class MovieProvider
 {
@@ -18,6 +22,8 @@ class MovieProvider
         private readonly OmdbMovieConsumer $consumer,
         private readonly OmdbMovieTransformer $transformer,
         private readonly GenreProvider $provider,
+        private readonly Security $security,
+        private readonly EventDispatcherInterface $dispatcher,
     ) {}
 
     public function getMovieByTitle(string $title): Movie
@@ -47,8 +53,13 @@ class MovieProvider
             $movie->addGenre($genre);
         }
 
+        if (($user = $this->security->getUser()) instanceof User) {
+            $movie->setCreatedBy($user);
+        }
+
         $this->io?->text('Saving movie in database.');
         $this->repository->save($movie, true);
+        $this->dispatcher->dispatch(new MovieCreatedEvent($movie));
 
         return $movie;
     }
