@@ -3,13 +3,16 @@
 namespace App\Controller;
 
 use App\Entity\Book;
+use App\Entity\User;
 use App\Form\BookType;
 use App\Repository\BookRepository;
+use App\Security\Voter\BookVoter;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
+use Symfony\Component\Security\Http\Attribute\IsGranted;
 
 #[Route('/book')]
 class BookController extends AbstractController
@@ -26,6 +29,7 @@ class BookController extends AbstractController
         ]);
     }
 
+    #[IsGranted('ROLE_USER')]
     #[Route('/{!id<\d+>?0}', name: 'app_book_show', methods: ['GET', 'POST'])]
     public function show(Book $book): Response
     {
@@ -39,12 +43,20 @@ class BookController extends AbstractController
     public function save(Request $request, ?Book $book = null): Response
     {
         $book ??= new Book();
+        if ($book->getId()) {
+            $this->denyAccessUnlessGranted(BookVoter::EDIT, $book);
+        }
 
         $form = $this->createForm(BookType::class, $book);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            dump($book);
+            if (($user = $this->getUser()) instanceof User) {
+                $book->setCreatedBy($user);
+            }
+            $this->repository->save($book, true);
+
+            return $this->redirectToRoute('app_book_show', ['id' => $book->getId()]);
         }
 
         return $this->render('book/new.html.twig', [

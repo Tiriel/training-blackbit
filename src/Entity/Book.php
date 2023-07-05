@@ -48,6 +48,9 @@ class Book
     #[ORM\Column(length: 255)]
     private ?string $editor = null;
 
+    #[ORM\ManyToOne(inversedBy: 'books')]
+    private ?User $createdBy = null;
+
     public function __construct()
     {
         $this->comments = new ArrayCollection();
@@ -180,6 +183,18 @@ class Book
     public function setEditor(string $editor): static
     {
         $this->editor = $editor;
+
+        return $this;
+    }
+
+    public function getCreatedBy(): ?User
+    {
+        return $this->createdBy;
+    }
+
+    public function setCreatedBy(?User $createdBy): static
+    {
+        $this->createdBy = $createdBy;
 
         return $this;
     }
