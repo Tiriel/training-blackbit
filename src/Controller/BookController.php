@@ -30,7 +30,7 @@ class BookController extends AbstractController
     }
 
     #[IsGranted('ROLE_USER')]
-    #[Route('/{!id<\d+>?0}', name: 'app_book_show', methods: ['GET', 'POST'])]
+    #[Route('/{!id<\d+>}', name: 'app_book_show', methods: ['GET'])]
     public function show(Book $book): Response
     {
         return $this->render('book/show.html.twig', [
