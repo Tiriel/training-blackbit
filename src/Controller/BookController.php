@@ -38,6 +38,7 @@ class BookController extends AbstractController
         ]);
     }
 
+    #[IsGranted('IS_AUTHENTICATED_FULLY')]
     #[Route('/new', name: 'app_book_new', methods: ['GET', 'POST'])]
     #[Route('/{id<\d+>}/edit', name: 'app_book_edit', methods: ['GET', 'POST'])]
     public function save(Request $request, ?Book $book = null): Response

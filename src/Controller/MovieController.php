@@ -18,6 +18,7 @@ use Symfony\Component\EventDispatcher\EventDispatcherInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Security\Core\Exception\AccessDeniedException;
 
 #[Route('/movie')]
 class MovieController extends AbstractController
@@ -96,11 +97,15 @@ class MovieController extends AbstractController
 
     protected function denyAccessUnlessGranted(mixed $attribute, mixed $subject = null, string $message = 'Access denied.'): void
     {
-        $user = $this->getUser();
-        if (\in_array($attribute, [MovieVoter::VIEW, MovieVoter::EDIT]) && $user instanceof User) {
-            $this->dispatcher->dispatch(new MovieUnderageEvent($subject, $user));
-        }
+        try {
+            parent::denyAccessUnlessGranted($attribute, $subject, $message);
+        } catch (AccessDeniedException $e) {
+            $user = $this->getUser();
+            if (\in_array($attribute, [MovieVoter::VIEW, MovieVoter::EDIT]) && $user instanceof User) {
+                $this->dispatcher->dispatch(new MovieUnderageEvent($subject ?? new Movie(), $user));
+            }
 
-        parent::denyAccessUnlessGranted($attribute, $subject, $message);
+            throw $e;
+        }
     }
 }

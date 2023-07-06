@@ -2,53 +2,48 @@
 
 namespace App\Tests\Controller;
 
-use Symfony\Bundle\FrameworkBundle\KernelBrowser;
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
-use Symfony\Component\Routing\Route;
-use Symfony\Component\Routing\RouterInterface;
 
 class MainControllerTest extends WebTestCase
 {
-    private static KernelBrowser $client;
-
-    public static function setUpBeforeClass(): void
+    /**
+     * @group functional
+     */
+    public function testHomePageIsSuccessfulAndContainsCards(): void
     {
-        static::$client = static::createClient();
+        $client = static::createClient();
+        $crawler = $client->request('GET', '/');
+
+        $titleText = $crawler->filter('h1')->innerText();
+        $cards = $crawler->filter('div.card');
+
+        $this->assertResponseIsSuccessful();
+        $this->assertSame('SensioTV+', $titleText);
+        $this->assertCount(6, $cards);
     }
 
     /**
-     * @dataProvider providePublicUrlsAndStatusCodes
-     * @group smoke
+     * @group functional
      */
-    public function testPublicUrlIsNotServerError(string $method, string $url): void
+    public function testContactFormRedirectsOnSuccess()
     {
-        static::$client->request($method, $url);
-        if (\in_array(static::$client->getResponse()->getStatusCode(), [301, 302, 307, 308])) {
-            static::$client->followRedirect();
-        }
+        $client = static::createClient();
+        $adminUser = static::getContainer()
+            ->get('App\Repository\UserRepository')
+            ->findOneBy(['email' => 'admin@sensiolabs.com']);
+        $client->loginUser($adminUser);
 
-        $this->assertSame(200, static::$client->getResponse()->getStatusCode());
-    }
+        $crawler = $client->request('GET', '/contact');
+        $client->enableProfiler();
+        $client->submitForm('Send', [
+            'contact[name]' => 'John Doe',
+            'contact[email]' => 'john@doe.com',
+            'contact[subject]' => 'Contact attempt',
+            'contact[message]' => 'Is this even working?',
+        ]);
+        $db = $client->getProfile()->getCollector('db');
+        $client->followRedirect();
 
-    public function providePublicUrlsAndStatusCodes(): \Generator
-    {
-        $router = static::getContainer()->get(RouterInterface::class);
-        $collection = $router->getRouteCollection();
-        static::ensureKernelShutdown();
-
-        foreach ($collection as $routeName => $route) {
-            /** @var Route $route */
-            $variables = $route->compile()->getVariables();
-            if (count(array_diff($variables, array_keys($route->getDefaults()))) > 0) {
-                continue;
-            }
-            if ([] === $methods = $route->getMethods()) {
-                $methods[] = 'GET';
-            }
-            foreach ($methods as $method) {
-                $path = $router->generate($routeName);
-                yield "$method $path" => [$method, $path];
-            }
-        }
+        $this->assertResponseIsSuccessful();
     }
 }

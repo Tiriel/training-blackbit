@@ -24,7 +24,6 @@ class MovieType extends AbstractType
                 'widget' => 'single_text',
             ])
             ->add('plot', TextareaType::class)
-            ->add('genres', GenreAutocompleteField::class)
             ->add('price', IntegerType::class)
         ;
     }
