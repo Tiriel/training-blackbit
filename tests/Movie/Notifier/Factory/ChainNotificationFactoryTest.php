@@ -25,6 +25,17 @@ class ChainNotificationFactoryTest extends TestCase
     /**
      * @group unit
      */
+    public function testChainFactoryConvertsIteratorsToArray(): void
+    {
+        $iterator = new \ArrayIterator(static::$factories);
+        $chainFactory = new ChainNotificationFactory($iterator);
+
+        $this->assertInstanceOf(Notification::class, $chainFactory->createNotification('subject', 'slack'));
+    }
+
+    /**
+     * @group unit
+     */
     public function testCreateNotificationReturnsNotificationObject(): void
     {
         $notification = static::$chainNotificationFactory->createNotification('subject', 'slack');
