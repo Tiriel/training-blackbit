@@ -77,6 +77,18 @@
         <ul>
             <li class="success">Traceable factory logs before creating notification</li>
         </ul>
+        <h2>Genre Provider (App\Tests\Movie\Provider\GenreProvider)</h2>
+        <ul>
+            <li class="success">Get genre returns object from repository when it exists with prophecy</li>
+            <li class="success">Get genre returns object from repository when it exists</li>
+            <li class="success">Get genre returns object from transformer when not exists</li>
+            <li class="success">Get genres from omdb string returns generator</li>
+        </ul>
+        <h2>Movie Provider (App\Tests\Movie\Provider\MovieProvider)</h2>
+        <ul>
+            <li class="success">Movie provider returns entity when exists</li>
+            <li class="success">Movie provider returns new object when not exists</li>
+        </ul>
         <h2>Omdb Genre Transformer (App\Tests\Movie\Transformer\OmdbGenreTransformer)</h2>
         <ul>
             <li class="success">Transform returns genre object with data set "Action"</li>

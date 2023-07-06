@@ -18,7 +18,7 @@ class OmdbMovieTransformer implements DataTransformerInterface
         'imdbID',
     ];
 
-    public function transform(mixed $value)
+    public function transform(mixed $value): mixed
     {
         if (!\is_array($value) || \count(array_diff(self::KEYS, array_keys($value))) > 0) {
             throw new \InvalidArgumentException("Invalid data.");
@@ -40,7 +40,7 @@ class OmdbMovieTransformer implements DataTransformerInterface
         return $movie;
     }
 
-    public function reverseTransform(mixed $value)
+    public function reverseTransform(mixed $value): mixed
     {
         throw new \RuntimeException('Not implemented.');
     }
