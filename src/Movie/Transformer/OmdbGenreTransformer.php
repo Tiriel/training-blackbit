@@ -5,7 +5,7 @@ namespace App\Movie\Transformer;
 use App\Entity\Genre;
 use Symfony\Component\Form\DataTransformerInterface;
 
-class OmdgGenreTransformer implements  DataTransformerInterface
+class OmdbGenreTransformer implements  DataTransformerInterface
 {
     public function transform(mixed $value)
     {

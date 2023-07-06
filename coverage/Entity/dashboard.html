@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <title>Dashboard for /home/benjamin/Dev/sl/formations/training-blackbit/src/Entity</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="../_css/bootstrap.min.css?v=9.2.26" rel="stylesheet" type="text/css">
+  <link href="../_css/nv.d3.min.css?v=9.2.26" rel="stylesheet" type="text/css">
+  <link href="../_css/style.css?v=9.2.26" rel="stylesheet" type="text/css">
+  <link href="../_css/custom.css" rel="stylesheet" type="text/css">
+ </head>
+ <body>
+  <header>
+   <div class="container-fluid">
+    <div class="row">
+     <div class="col-md-12">
+      <nav aria-label="breadcrumb">
+       <ol class="breadcrumb">
+         <li class="breadcrumb-item"><a href="../index.html">/home/benjamin/Dev/sl/formations/training-blackbit/src</a></li>
+         <li class="breadcrumb-item"><a href="index.html">Entity</a></li>
+         <li class="breadcrumb-item active">(Dashboard)</li>
+
+       </ol>
+      </nav>
+     </div>
+    </div>
+   </div>
+  </header>
+  <div class="container-fluid">
+   <div class="row">
+    <div class="col-md-12">
+     <h2>Classes</h2>
+    </div>
+   </div>
+   <div class="row">
+    <div class="col-md-6">
+     <h3>Coverage Distribution</h3>
+     <div id="classCoverageDistribution" style="height: 300px;">
+       <svg></svg>
+     </div>
+    </div>
+    <div class="col-md-6">
+     <h3>Complexity</h3>
+     <div id="classComplexity" style="height: 300px;">
+       <svg></svg>
+     </div>
+    </div>
+   </div>
+   <div class="row">
+    <div class="col-md-6">
+     <h3>Insufficient Coverage</h3>
+     <div class="scrollbox">
+      <table class="table">
+       <thead>
+        <tr>
+         <th>Class</th>
+         <th class="text-right">Coverage</th>
+        </tr>
+       </thead>
+       <tbody>
+       <tr><td><a href="Book.php.html#12">App\Entity\Book</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Comment.php.html#9">App\Entity\Comment</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="User.php.html#14">App\Entity\User</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Movie.php.html#12">App\Entity\Movie</a></td><td class="text-right">54%</td></tr>
+       <tr><td><a href="Genre.php.html#8">App\Entity\Genre</a></td><td class="text-right">75%</td></tr>
+
+       </tbody>
+      </table>
+     </div>
+    </div>
+    <div class="col-md-6">
+     <h3>Project Risks</h3>
+     <div class="scrollbox">
+      <table class="table">
+       <thead>
+        <tr>
+         <th>Class</th>
+         <th class="text-right"><abbr title="Change Risk Anti-Patterns (CRAP) Index">CRAP</abbr></th>
+        </tr>
+       </thead>
+       <tbody>
+       <tr><td><a href="User.php.html#14">App\Entity\User</a></td><td class="text-right">812</td></tr>
+       <tr><td><a href="Book.php.html#12">App\Entity\Book</a></td><td class="text-right">702</td></tr>
+       <tr><td><a href="Movie.php.html#12">App\Entity\Movie</a></td><td class="text-right">79</td></tr>
+
+       </tbody>
+      </table>
+     </div>
+    </div>
+   </div>
+   <div class="row">
+    <div class="col-md-12">
+     <h2>Methods</h2>
+    </div>
+   </div>
+   <div class="row">
+    <div class="col-md-6">
+     <h3>Coverage Distribution</h3>
+     <div id="methodCoverageDistribution" style="height: 300px;">
+       <svg></svg>
+     </div>
+    </div>
+    <div class="col-md-6">
+     <h3>Complexity</h3>
+     <div id="methodComplexity" style="height: 300px;">
+       <svg></svg>
+     </div>
+    </div>
+   </div>
+   <div class="row">
+    <div class="col-md-6">
+     <h3>Insufficient Coverage</h3>
+     <div class="scrollbox">
+      <table class="table">
+       <thead>
+        <tr>
+         <th>Method</th>
+         <th class="text-right">Coverage</th>
+        </tr>
+       </thead>
+       <tbody>
+       <tr><td><a href="Book.php.html#54"><abbr title="App\Entity\Book::__construct">__construct</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Book.php.html#59"><abbr title="App\Entity\Book::getId">getId</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Book.php.html#64"><abbr title="App\Entity\Book::getTitle">getTitle</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Book.php.html#69"><abbr title="App\Entity\Book::setTitle">setTitle</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Book.php.html#76"><abbr title="App\Entity\Book::getAuthor">getAuthor</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Book.php.html#81"><abbr title="App\Entity\Book::setAuthor">setAuthor</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Book.php.html#88"><abbr title="App\Entity\Book::getReleasedAt">getReleasedAt</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Book.php.html#93"><abbr title="App\Entity\Book::setReleasedAt">setReleasedAt</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Book.php.html#100"><abbr title="App\Entity\Book::getIsbn">getIsbn</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Book.php.html#105"><abbr title="App\Entity\Book::setIsbn">setIsbn</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Book.php.html#112"><abbr title="App\Entity\Book::getPrice">getPrice</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Book.php.html#117"><abbr title="App\Entity\Book::setPrice">setPrice</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Book.php.html#127"><abbr title="App\Entity\Book::getComments">getComments</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Book.php.html#132"><abbr title="App\Entity\Book::addComment">addComment</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Book.php.html#142"><abbr title="App\Entity\Book::removeComment">removeComment</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Book.php.html#154"><abbr title="App\Entity\Book::getCover">getCover</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Book.php.html#159"><abbr title="App\Entity\Book::setCover">setCover</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Book.php.html#166"><abbr title="App\Entity\Book::getPlot">getPlot</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Book.php.html#171"><abbr title="App\Entity\Book::setPlot">setPlot</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Book.php.html#178"><abbr title="App\Entity\Book::getEditor">getEditor</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Book.php.html#183"><abbr title="App\Entity\Book::setEditor">setEditor</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Book.php.html#190"><abbr title="App\Entity\Book::getCreatedBy">getCreatedBy</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Book.php.html#195"><abbr title="App\Entity\Book::setCreatedBy">setCreatedBy</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Comment.php.html#33"><abbr title="App\Entity\Comment::getId">getId</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Comment.php.html#38"><abbr title="App\Entity\Comment::getName">getName</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Comment.php.html#43"><abbr title="App\Entity\Comment::setName">setName</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Comment.php.html#50"><abbr title="App\Entity\Comment::getEmail">getEmail</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Comment.php.html#55"><abbr title="App\Entity\Comment::setEmail">setEmail</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Comment.php.html#62"><abbr title="App\Entity\Comment::getContent">getContent</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Comment.php.html#67"><abbr title="App\Entity\Comment::setContent">setContent</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Comment.php.html#74"><abbr title="App\Entity\Comment::getCreatedAt">getCreatedAt</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Comment.php.html#79"><abbr title="App\Entity\Comment::setCreatedAt">setCreatedAt</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Comment.php.html#86"><abbr title="App\Entity\Comment::getBook">getBook</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Comment.php.html#91"><abbr title="App\Entity\Comment::setBook">setBook</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Genre.php.html#19"><abbr title="App\Entity\Genre::getId">getId</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Movie.php.html#61"><abbr title="App\Entity\Movie::getId">getId</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Movie.php.html#78"><abbr title="App\Entity\Movie::getPoster">getPoster</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Movie.php.html#90"><abbr title="App\Entity\Movie::getCountry">getCountry</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Movie.php.html#114"><abbr title="App\Entity\Movie::getPlot">getPlot</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Movie.php.html#126"><abbr title="App\Entity\Movie::getPrice">getPrice</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Movie.php.html#141"><abbr title="App\Entity\Movie::getGenres">getGenres</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Movie.php.html#146"><abbr title="App\Entity\Movie::addGenre">addGenre</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Movie.php.html#155"><abbr title="App\Entity\Movie::removeGenre">removeGenre</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Movie.php.html#162"><abbr title="App\Entity\Movie::getRated">getRated</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Movie.php.html#174"><abbr title="App\Entity\Movie::getImdbId">getImdbId</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Movie.php.html#186"><abbr title="App\Entity\Movie::getCreatedBy">getCreatedBy</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Movie.php.html#191"><abbr title="App\Entity\Movie::setCreatedBy">setCreatedBy</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="User.php.html#49"><abbr title="App\Entity\User::__construct">__construct</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="User.php.html#55"><abbr title="App\Entity\User::getId">getId</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="User.php.html#60"><abbr title="App\Entity\User::getEmail">getEmail</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="User.php.html#65"><abbr title="App\Entity\User::setEmail">setEmail</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="User.php.html#77"><abbr title="App\Entity\User::getUserIdentifier">getUserIdentifier</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="User.php.html#85"><abbr title="App\Entity\User::getRoles">getRoles</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="User.php.html#94"><abbr title="App\Entity\User::setRoles">setRoles</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="User.php.html#104"><abbr title="App\Entity\User::getPassword">getPassword</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="User.php.html#109"><abbr title="App\Entity\User::setPassword">setPassword</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="User.php.html#116"><abbr title="App\Entity\User::getPlainPassword">getPlainPassword</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="User.php.html#121"><abbr title="App\Entity\User::setPlainPassword">setPlainPassword</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="User.php.html#130"><abbr title="App\Entity\User::eraseCredentials">eraseCredentials</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="User.php.html#139"><abbr title="App\Entity\User::getBooks">getBooks</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="User.php.html#144"><abbr title="App\Entity\User::addBook">addBook</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="User.php.html#154"><abbr title="App\Entity\User::removeBook">removeBook</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="User.php.html#166"><abbr title="App\Entity\User::getBirthday">getBirthday</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="User.php.html#171"><abbr title="App\Entity\User::setBirthday">setBirthday</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="User.php.html#181"><abbr title="App\Entity\User::getMovies">getMovies</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="User.php.html#186"><abbr title="App\Entity\User::addMovie">addMovie</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="User.php.html#196"><abbr title="App\Entity\User::removeMovie">removeMovie</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="User.php.html#208"><abbr title="App\Entity\User::getLastConnectedAt">getLastConnectedAt</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="User.php.html#213"><abbr title="App\Entity\User::setLastConnectedAt">setLastConnectedAt</abbr></a></td><td class="text-right">0%</td></tr>
+
+       </tbody>
+      </table>
+     </div>
+    </div>
+    <div class="col-md-6">
+     <h3>Project Risks</h3>
+     <div class="scrollbox">
+      <table class="table">
+       <thead>
+        <tr>
+         <th>Method</th>
+         <th class="text-right"><abbr title="Change Risk Anti-Patterns (CRAP) Index">CRAP</abbr></th>
+        </tr>
+       </thead>
+       <tbody>
+       <tr><td><a href="Book.php.html#142"><abbr title="App\Entity\Book::removeComment">removeComment</abbr></a></td><td class="text-right">12</td></tr>
+       <tr><td><a href="User.php.html#154"><abbr title="App\Entity\User::removeBook">removeBook</abbr></a></td><td class="text-right">12</td></tr>
+       <tr><td><a href="User.php.html#196"><abbr title="App\Entity\User::removeMovie">removeMovie</abbr></a></td><td class="text-right">12</td></tr>
+       <tr><td><a href="Book.php.html#132"><abbr title="App\Entity\Book::addComment">addComment</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="Movie.php.html#146"><abbr title="App\Entity\Movie::addGenre">addGenre</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="User.php.html#144"><abbr title="App\Entity\User::addBook">addBook</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="User.php.html#186"><abbr title="App\Entity\User::addMovie">addMovie</abbr></a></td><td class="text-right">6</td></tr>
+
+       </tbody>
+      </table>
+     </div>
+    </div>
+   </div>
+   <footer>
+    <hr/>
+    <p>
+     <small>Generated by <a href="https://github.com/sebastianbergmann/php-code-coverage" target="_top">php-code-coverage 9.2.26</a> using <a href="https://secure.php.net/" target="_top">PHP 8.2.6</a> and <a href="https://phpunit.de/">PHPUnit 9.6.9</a> at Thu Jul 6 11:09:08 CEST 2023.</small>
+    </p>
+   </footer>
+  </div>
+  <script src="../_js/jquery.min.js?v=9.2.26" type="text/javascript"></script>
+  <script src="../_js/d3.min.js?v=9.2.26" type="text/javascript"></script>
+  <script src="../_js/nv.d3.min.js?v=9.2.26" type="text/javascript"></script>
+  <script type="text/javascript">
+$(document).ready(function() {
+  nv.addGraph(function() {
+    var chart = nv.models.multiBarChart();
+    chart.tooltips(false)
+      .showControls(false)
+      .showLegend(false)
+      .reduceXTicks(false)
+      .staggerLabels(true)
+      .yAxis.tickFormat(d3.format('d'));
+
+    d3.select('#classCoverageDistribution svg')
+      .datum(getCoverageDistributionData([3,0,0,0,0,0,1,0,1,0,0,0], "Class Coverage"))
+      .transition().duration(500).call(chart);
+
+    nv.utils.windowResize(chart.update);
+
+    return chart;
+  });
+
+  nv.addGraph(function() {
+    var chart = nv.models.multiBarChart();
+    chart.tooltips(false)
+      .showControls(false)
+      .showLegend(false)
+      .reduceXTicks(false)
+      .staggerLabels(true)
+      .yAxis.tickFormat(d3.format('d'));
+
+    d3.select('#methodCoverageDistribution svg')
+      .datum(getCoverageDistributionData([69,0,0,0,0,0,0,0,0,0,0,13], "Method Coverage"))
+      .transition().duration(500).call(chart);
+
+    nv.utils.windowResize(chart.update);
+
+    return chart;
+  });
+
+  function getCoverageDistributionData(data, label) {
+    var labels = [
+      '0%',
+      '0-10%',
+      '10-20%',
+      '20-30%',
+      '30-40%',
+      '40-50%',
+      '50-60%',
+      '60-70%',
+      '70-80%',
+      '80-90%',
+      '90-100%',
+      '100%'
+    ];
+    var values = [];
+    $.each(labels, function(key) {
+      values.push({x: labels[key], y: data[key]});
+    });
+
+    return [
+      {
+        key: label,
+        values: values,
+        color: "#4572A7"
+      }
+    ];
+  }
+  nv.addGraph(function() {
+    var chart = nv.models.scatterChart()
+      .showDistX(true)
+      .showDistY(true)
+      .showLegend(false)
+      .forceX([0, 100]);
+    chart.tooltipContent(function(graph) {
+      return '<p>' + graph.point.class + '</p>';
+    });
+
+    chart.xAxis.axisLabel('Code Coverage (in percent)');
+    chart.yAxis.axisLabel('Cyclomatic Complexity');
+
+    d3.select('#classComplexity svg')
+      .datum(getComplexityData([[0,26,"<a href=\"Book.php.html#12\">App\\Entity\\Book<\/a>"],[0,11,"<a href=\"Comment.php.html#9\">App\\Entity\\Comment<\/a>"],[75,3,"<a href=\"Genre.php.html#8\">App\\Entity\\Genre<\/a>"],[54.285714285714285,24,"<a href=\"Movie.php.html#12\">App\\Entity\\Movie<\/a>"],[0,28,"<a href=\"User.php.html#14\">App\\Entity\\User<\/a>"]], 'Class Complexity'))
+      .transition()
+      .duration(500)
+      .call(chart);
+
+    nv.utils.windowResize(chart.update);
+
+    return chart;
+  });
+
+  nv.addGraph(function() {
+    var chart = nv.models.scatterChart()
+      .showDistX(true)
+      .showDistY(true)
+      .showLegend(false)
+      .forceX([0, 100]);
+    chart.tooltipContent(function(graph) {
+      return '<p>' + graph.point.class + '</p>';
+    });
+
+    chart.xAxis.axisLabel('Code Coverage (in percent)');
+    chart.yAxis.axisLabel('Method Complexity');
+
+    d3.select('#methodComplexity svg')
+      .datum(getComplexityData([[0,1,"<a href=\"Book.php.html#54\">App\\Entity\\Book::__construct<\/a>"],[0,1,"<a href=\"Book.php.html#59\">App\\Entity\\Book::getId<\/a>"],[0,1,"<a href=\"Book.php.html#64\">App\\Entity\\Book::getTitle<\/a>"],[0,1,"<a href=\"Book.php.html#69\">App\\Entity\\Book::setTitle<\/a>"],[0,1,"<a href=\"Book.php.html#76\">App\\Entity\\Book::getAuthor<\/a>"],[0,1,"<a href=\"Book.php.html#81\">App\\Entity\\Book::setAuthor<\/a>"],[0,1,"<a href=\"Book.php.html#88\">App\\Entity\\Book::getReleasedAt<\/a>"],[0,1,"<a href=\"Book.php.html#93\">App\\Entity\\Book::setReleasedAt<\/a>"],[0,1,"<a href=\"Book.php.html#100\">App\\Entity\\Book::getIsbn<\/a>"],[0,1,"<a href=\"Book.php.html#105\">App\\Entity\\Book::setIsbn<\/a>"],[0,1,"<a href=\"Book.php.html#112\">App\\Entity\\Book::getPrice<\/a>"],[0,1,"<a href=\"Book.php.html#117\">App\\Entity\\Book::setPrice<\/a>"],[0,1,"<a href=\"Book.php.html#127\">App\\Entity\\Book::getComments<\/a>"],[0,2,"<a href=\"Book.php.html#132\">App\\Entity\\Book::addComment<\/a>"],[0,3,"<a href=\"Book.php.html#142\">App\\Entity\\Book::removeComment<\/a>"],[0,1,"<a href=\"Book.php.html#154\">App\\Entity\\Book::getCover<\/a>"],[0,1,"<a href=\"Book.php.html#159\">App\\Entity\\Book::setCover<\/a>"],[0,1,"<a href=\"Book.php.html#166\">App\\Entity\\Book::getPlot<\/a>"],[0,1,"<a href=\"Book.php.html#171\">App\\Entity\\Book::setPlot<\/a>"],[0,1,"<a href=\"Book.php.html#178\">App\\Entity\\Book::getEditor<\/a>"],[0,1,"<a href=\"Book.php.html#183\">App\\Entity\\Book::setEditor<\/a>"],[0,1,"<a href=\"Book.php.html#190\">App\\Entity\\Book::getCreatedBy<\/a>"],[0,1,"<a href=\"Book.php.html#195\">App\\Entity\\Book::setCreatedBy<\/a>"],[0,1,"<a href=\"Comment.php.html#33\">App\\Entity\\Comment::getId<\/a>"],[0,1,"<a href=\"Comment.php.html#38\">App\\Entity\\Comment::getName<\/a>"],[0,1,"<a href=\"Comment.php.html#43\">App\\Entity\\Comment::setName<\/a>"],[0,1,"<a href=\"Comment.php.html#50\">App\\Entity\\Comment::getEmail<\/a>"],[0,1,"<a href=\"Comment.php.html#55\">App\\Entity\\Comment::setEmail<\/a>"],[0,1,"<a href=\"Comment.php.html#62\">App\\Entity\\Comment::getContent<\/a>"],[0,1,"<a href=\"Comment.php.html#67\">App\\Entity\\Comment::setContent<\/a>"],[0,1,"<a href=\"Comment.php.html#74\">App\\Entity\\Comment::getCreatedAt<\/a>"],[0,1,"<a href=\"Comment.php.html#79\">App\\Entity\\Comment::setCreatedAt<\/a>"],[0,1,"<a href=\"Comment.php.html#86\">App\\Entity\\Comment::getBook<\/a>"],[0,1,"<a href=\"Comment.php.html#91\">App\\Entity\\Comment::setBook<\/a>"],[0,1,"<a href=\"Genre.php.html#19\">App\\Entity\\Genre::getId<\/a>"],[100,1,"<a href=\"Genre.php.html#24\">App\\Entity\\Genre::getName<\/a>"],[100,1,"<a href=\"Genre.php.html#29\">App\\Entity\\Genre::setName<\/a>"],[100,1,"<a href=\"Movie.php.html#56\">App\\Entity\\Movie::__construct<\/a>"],[0,1,"<a href=\"Movie.php.html#61\">App\\Entity\\Movie::getId<\/a>"],[100,1,"<a href=\"Movie.php.html#66\">App\\Entity\\Movie::getTitle<\/a>"],[100,1,"<a href=\"Movie.php.html#71\">App\\Entity\\Movie::setTitle<\/a>"],[0,1,"<a href=\"Movie.php.html#78\">App\\Entity\\Movie::getPoster<\/a>"],[100,1,"<a href=\"Movie.php.html#83\">App\\Entity\\Movie::setPoster<\/a>"],[0,1,"<a href=\"Movie.php.html#90\">App\\Entity\\Movie::getCountry<\/a>"],[100,1,"<a href=\"Movie.php.html#95\">App\\Entity\\Movie::setCountry<\/a>"],[100,1,"<a href=\"Movie.php.html#102\">App\\Entity\\Movie::getReleasedAt<\/a>"],[100,1,"<a href=\"Movie.php.html#107\">App\\Entity\\Movie::setReleasedAt<\/a>"],[0,1,"<a href=\"Movie.php.html#114\">App\\Entity\\Movie::getPlot<\/a>"],[100,1,"<a href=\"Movie.php.html#119\">App\\Entity\\Movie::setPlot<\/a>"],[0,1,"<a href=\"Movie.php.html#126\">App\\Entity\\Movie::getPrice<\/a>"],[100,1,"<a href=\"Movie.php.html#131\">App\\Entity\\Movie::setPrice<\/a>"],[0,1,"<a href=\"Movie.php.html#141\">App\\Entity\\Movie::getGenres<\/a>"],[0,2,"<a href=\"Movie.php.html#146\">App\\Entity\\Movie::addGenre<\/a>"],[0,1,"<a href=\"Movie.php.html#155\">App\\Entity\\Movie::removeGenre<\/a>"],[0,1,"<a href=\"Movie.php.html#162\">App\\Entity\\Movie::getRated<\/a>"],[100,1,"<a href=\"Movie.php.html#167\">App\\Entity\\Movie::setRated<\/a>"],[0,1,"<a href=\"Movie.php.html#174\">App\\Entity\\Movie::getImdbId<\/a>"],[100,1,"<a href=\"Movie.php.html#179\">App\\Entity\\Movie::setImdbId<\/a>"],[0,1,"<a href=\"Movie.php.html#186\">App\\Entity\\Movie::getCreatedBy<\/a>"],[0,1,"<a href=\"Movie.php.html#191\">App\\Entity\\Movie::setCreatedBy<\/a>"],[0,1,"<a href=\"User.php.html#49\">App\\Entity\\User::__construct<\/a>"],[0,1,"<a href=\"User.php.html#55\">App\\Entity\\User::getId<\/a>"],[0,1,"<a href=\"User.php.html#60\">App\\Entity\\User::getEmail<\/a>"],[0,1,"<a href=\"User.php.html#65\">App\\Entity\\User::setEmail<\/a>"],[0,1,"<a href=\"User.php.html#77\">App\\Entity\\User::getUserIdentifier<\/a>"],[0,1,"<a href=\"User.php.html#85\">App\\Entity\\User::getRoles<\/a>"],[0,1,"<a href=\"User.php.html#94\">App\\Entity\\User::setRoles<\/a>"],[0,1,"<a href=\"User.php.html#104\">App\\Entity\\User::getPassword<\/a>"],[0,1,"<a href=\"User.php.html#109\">App\\Entity\\User::setPassword<\/a>"],[0,1,"<a href=\"User.php.html#116\">App\\Entity\\User::getPlainPassword<\/a>"],[0,1,"<a href=\"User.php.html#121\">App\\Entity\\User::setPlainPassword<\/a>"],[0,1,"<a href=\"User.php.html#130\">App\\Entity\\User::eraseCredentials<\/a>"],[0,1,"<a href=\"User.php.html#139\">App\\Entity\\User::getBooks<\/a>"],[0,2,"<a href=\"User.php.html#144\">App\\Entity\\User::addBook<\/a>"],[0,3,"<a href=\"User.php.html#154\">App\\Entity\\User::removeBook<\/a>"],[0,1,"<a href=\"User.php.html#166\">App\\Entity\\User::getBirthday<\/a>"],[0,1,"<a href=\"User.php.html#171\">App\\Entity\\User::setBirthday<\/a>"],[0,1,"<a href=\"User.php.html#181\">App\\Entity\\User::getMovies<\/a>"],[0,2,"<a href=\"User.php.html#186\">App\\Entity\\User::addMovie<\/a>"],[0,3,"<a href=\"User.php.html#196\">App\\Entity\\User::removeMovie<\/a>"],[0,1,"<a href=\"User.php.html#208\">App\\Entity\\User::getLastConnectedAt<\/a>"],[0,1,"<a href=\"User.php.html#213\">App\\Entity\\User::setLastConnectedAt<\/a>"]], 'Method Complexity'))
+      .transition()
+      .duration(500)
+      .call(chart);
+
+    nv.utils.windowResize(chart.update);
+
+    return chart;
+  });
+
+  function getComplexityData(data, label) {
+    var values = [];
+    $.each(data, function(key) {
+      var value = Math.round(data[key][0]*100) / 100;
+      values.push({
+        x: value,
+        y: data[key][1],
+        class: data[key][2],
+        size: 0.05,
+        shape: 'diamond'
+      });
+    });
+
+    return [
+      {
+        key: label,
+        values: values,
+        color: "#4572A7"
+      }
+    ];
+  }
+});
+  </script>
+ </body>
+</html>

@@ -11,7 +11,7 @@ use Symfony\Component\Notifier\Recipient\Recipient;
 class MovieNotifier
 {
     public function __construct(
-        private readonly NotifierInterface $notifier,
+        //private readonly NotifierInterface $notifier,
         private readonly NotificationFactoryInterface $factory,
     ) {}
 

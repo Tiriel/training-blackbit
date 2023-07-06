@@ -7,9 +7,20 @@ use Symfony\Component\Form\DataTransformerInterface;
 
 class OmdbMovieTransformer implements DataTransformerInterface
 {
+    private const KEYS = [
+        'Title',
+        'Poster',
+        'Year',
+        'Released',
+        'Country',
+        'Plot',
+        'Rated',
+        'imdbID',
+    ];
+
     public function transform(mixed $value)
     {
-        if (!\is_array($value) || !array_key_exists('Title', $value)) {
+        if (!\is_array($value) || \count(array_diff(self::KEYS, array_keys($value))) > 0) {
             throw new \InvalidArgumentException("Invalid data.");
         }
 

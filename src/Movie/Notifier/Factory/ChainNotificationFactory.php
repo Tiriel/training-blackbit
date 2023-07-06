@@ -23,6 +23,10 @@ class ChainNotificationFactory implements NotificationFactoryInterface
         if (!$channel) {
             throw new \RuntimeException(sprintf("%s::%s needs a valid channel as its second argument.", __CLASS__, __METHOD__));
         }
+        if (!\array_key_exists($channel, $this->factories)) {
+            throw new \RuntimeException(sprintf("Channel %s is not defined. Available channels: '%s'", $channel, implode("', '", \array_keys($this->factories))));
+        }
+
         return $this->factories[$channel]->createNotification($subject);
     }
 }

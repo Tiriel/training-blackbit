@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8"/>
+        <title>Test Documentation</title>
+        <style>
+            body {
+                text-rendering: optimizeLegibility;
+                font-family: Source SansSerif Pro, Arial, sans-serif;
+                font-variant-ligatures: common-ligatures;
+                font-kerning: normal;
+                margin-left: 2rem;
+                background-color: #fff;
+                color: #000;
+            }
+
+            body > ul > li {
+                font-size: larger;
+            }
+
+            h2 {
+                font-size: larger;
+                text-decoration-line: underline;
+                text-decoration-thickness: 2px;
+                margin: 0;
+                padding: 0.5rem 0;
+            }
+
+            ul {
+                list-style: none;
+                margin: 0 0 2rem;
+                padding: 0 0 0 1rem;
+                text-indent: -1rem;
+            }
+
+            .success:before {
+                color: #4e9a06;
+                content: '✓';
+                padding-right: 0.5rem;
+            }
+
+            .defect {
+                color: #a40000;
+            }
+
+            .defect:before {
+                color: #a40000;
+                content: '✗';
+                padding-right: 0.5rem;
+            }
+        </style>
+    </head>
+    <body>
+        <h2>Omdb Movie Consumer (App\Tests\Movie\Consumer\OmdbMovieConsumer)</h2>
+        <ul>
+            <li class="success">Consumer returns array</li>
+            <li class="success">Consumer throws when movie not found</li>
+        </ul>
+        <h2>Chain Notification Factory (App\Tests\Movie\Notifier\Factory\ChainNotificationFactory)</h2>
+        <ul>
+            <li class="success">Create notification returns notification object</li>
+            <li class="success">Create notification throws on empty channel</li>
+            <li class="success">Create notification throws on invalid channel</li>
+        </ul>
+        <h2>Discord Notification Factory (App\Tests\Movie\Notifier\Factory\DiscordNotificationFactory)</h2>
+        <ul>
+            <li class="success">Factory returns discord notification object</li>
+            <li class="success">Factory get index method returns discord</li>
+        </ul>
+        <h2>Slack Notification Factory (App\Tests\Movie\Notifier\Factory\SlackNotificationFactory)</h2>
+        <ul>
+            <li class="success">Factory returns slack notification object</li>
+            <li class="success">Factory get index method returns slack</li>
+        </ul>
+        <h2>Omdb Genre Transformer (App\Tests\Movie\Transformer\OmdbGenreTransformer)</h2>
+        <ul>
+            <li class="success">Transform returns genre object with data set "Action"</li>
+            <li class="success">Transform returns genre object with data set "Adventure"</li>
+            <li class="success">Transform returns genre object with data set "Fantasy"</li>
+            <li class="success">Transform throws an exception on non string argument</li>
+        </ul>
+        <h2>Omdb Movie Transformer (App\Tests\Movie\Transformer\OmdbMovieTransformer)</h2>
+        <ul>
+            <li class="success">Transform returns movie object</li>
+            <li class="success">Transform uses year when released not available</li>
+            <li class="success">Transform throws on not array</li>
+            <li class="success">Transform throws on missing key</li>
+        </ul>
+    </body>
+</html>

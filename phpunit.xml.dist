@@ -27,6 +27,13 @@
         <include>
             <directory suffix=".php">src</directory>
         </include>
+        <exclude>
+            <directory>src/DataFixtures</directory>
+            <directory>src/Dto</directory>
+            <directory>src/Entity</directory>
+            <directory>src/Event</directory>
+            <directory>src/Repository</directory>
+        </exclude>
     </coverage>
 
     <listeners>
